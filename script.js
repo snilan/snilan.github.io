@@ -16,8 +16,9 @@ const renderModel = (location) => {
 
     let scene = document.querySelector('a-scene');
 
-    let latitude = location.lat;
-    let longitude = location.lng;
+    let latitude = location.latitude;
+    let longitude = location.longitude;
+    alert("loaded", latitude, longitude);
 
     let model = document.createElement('a-entity');
     model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
