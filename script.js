@@ -1,7 +1,18 @@
 
 
-const latitude = "43.668420";
-const longitude = "-70.247750";
+AFRAME.registerComponent('cursor-listener', {
+    init: function () {
+      var lastIndex = -1;
+      var COLORS = ['red', 'green', 'blue'];
+      this.el.addEventListener('click', function (evt) {
+        lastIndex = (lastIndex + 1) % COLORS.length;
+        this.setAttribute('material', 'color', COLORS[lastIndex]);
+        console.log('I was clicked at: ', evt.detail.intersection.point);
+        alert("I was clicked");
+      });
+    }
+  });
+
 
 
 window.onload = () => {
@@ -18,13 +29,15 @@ const renderModel = (location) => {
     let latitude = location.latitude;
     let longitude = location.longitude;
     alert("loaded", latitude, longitude);
-    alert("loaded", latitude, longitude);
+    console.log("loaded", latitude, longitude);
 
 
     let model = document.createElement('a-sphere');
+    model.setAttribute("id", "sphere");
+    model.setAttribute("cursor-listener");
     model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
     model.setAttribute("color","#4CC3D9");
-    model.setAttribute("radius", "1.25");
+    model.setAttribute("radius", "5");
     //model.setAttribute('gltf-model', './assets/magnemite/scene.gltf');
     //model.setAttribute('rotation', '0 180 0');
     //model.setAttribute('animation-mixer', '');
