@@ -4,6 +4,7 @@ AFRAME.registerComponent('cursor-listener', {
     init: function () {
       var lastIndex = -1;
       var COLORS = ['red', 'green', 'blue'];
+      console.log("made it here", this.el);
       this.el.addEventListener('click', function (evt) {
         lastIndex = (lastIndex + 1) % COLORS.length;
         this.setAttribute('material', 'color', COLORS[lastIndex]);
@@ -37,7 +38,7 @@ const renderModel = (location) => {
     model.setAttribute("cursor-listener");
     model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
     model.setAttribute("color","#4CC3D9");
-    model.setAttribute("radius", "5");
+    model.setAttribute("radius", "0.5");
     //model.setAttribute('gltf-model', './assets/magnemite/scene.gltf');
     //model.setAttribute('rotation', '0 180 0');
     //model.setAttribute('animation-mixer', '');
