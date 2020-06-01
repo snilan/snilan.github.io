@@ -45,7 +45,7 @@ const renderModel = (location) => {
     model.setAttribute("cursor-listener", "true");
     model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
     model.setAttribute("color","#4CC3D9");
-    model.setAttribute("radius", "0.5");
+    model.setAttribute("radius", "4");
     //model.setAttribute('gltf-model', './assets/magnemite/scene.gltf');
     //model.setAttribute('rotation', '0 180 0');
     //model.setAttribute('animation-mixer', '');
