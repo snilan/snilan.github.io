@@ -29,7 +29,7 @@ const renderModel = (location) => {
 
     let latitude = location.latitude;
     let longitude = location.longitude;
-    alert("loaded", latitude, longitude);
+    alert(`loaded ${latitude}, ${longitude}`);
     console.log("loaded", latitude, longitude);
 
 
