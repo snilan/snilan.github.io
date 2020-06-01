@@ -35,7 +35,7 @@ const renderModel = (location) => {
 
     let model = document.createElement('a-sphere');
     model.setAttribute("id", "sphere");
-    model.setAttribute("cursor-listener");
+    model.setAttribute("cursor-listener", "true");
     model.setAttribute('gps-entity-place', `latitude: ${latitude}; longitude: ${longitude};`);
     model.setAttribute("color","#4CC3D9");
     model.setAttribute("radius", "0.5");
