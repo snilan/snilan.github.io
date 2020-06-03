@@ -16,6 +16,7 @@ AFRAME.registerComponent('cursor-listener', {
         lastIndex = (lastIndex + 1) % COLORS.length;
         this.setAttribute('material', 'color', COLORS[lastIndex]);
         console.log('I was touched at: ', evt.detail.intersection.point);
+
         alert("I was touched");
       });
     }
@@ -57,3 +58,26 @@ const renderModel = (location) => {
 
     scene.appendChild(model);
 }
+
+
+function nodeToString(node) {
+  return node.tagName + " id=" + node.id + " class=" + node.className;
+}
+
+function printExpand(node, level) {
+  console.log(Array(level).fill("  ").join("") + nodeToString(node));
+  if (node.children) {
+    for (let i = 0; i < node.children.length; i++) {
+      printExpand(node.children[i], level + 1)
+    }
+  }
+}
+
+console.expand = (node) => printExpand(node, 0);
+
+var sliders = document.querySelectorAll(".slider-item");
+sliders.forEach(slider =>   
+  slider.addEventListener("mouseover", function(e) {
+    var bobCard = slider.querySelector(".bob-container span .bob-card") ;
+    console.expand(bobCard);
+  }));
