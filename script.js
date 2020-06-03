@@ -10,14 +10,7 @@ AFRAME.registerComponent('cursor-listener', {
         lastIndex = (lastIndex + 1) % COLORS.length;
         this.setAttribute('material', 'color', COLORS[lastIndex]);
         console.log('I was clicked at: ', evt.detail.intersection.point);
-        alert("I was clicked");
-      });
-      this.el.addEventListener('touchstart', function (evt) {
-        lastIndex = (lastIndex + 1) % COLORS.length;
-        this.setAttribute('material', 'color', COLORS[lastIndex]);
-        console.log('I was touched at: ', evt.detail.intersection.point);
-
-        alert("I was touched");
+        alert("I was clicked at", JSON.stringify(evt.detail));
       });
     }
   });
